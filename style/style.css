@@ -9,3 +9,7 @@ body{
 #start{
     font-size:large;
 }
+
+#answer1, #answer2, #answer3, #answer4{
+    display: none;
+}
