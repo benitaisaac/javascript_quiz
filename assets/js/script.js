@@ -1,11 +1,13 @@
 var startButton = document.querySelector("#start");
 var timerElement = document.querySelector(".timer-count");
 
-let questionOne = ["text for question one", "answer option 1_1", "answer option 2_1", "answer option 3_1", "answer option 4_1", "answer option 5_1"];
+let questionOne = ["text for question one", "answer option 1_1", "answer option 2_1", "answer option 3_1", "answer option 4_1", "answer option 1_1", ];
 let questionTwo = ["text for question two", "answer option 1_2", "answer option 2_2", "answer option 3_2", "answer option 4_2", "answer option 5_2"];
 let questionThree = ["text for question three", "answer option 1_3", "answer option 2_3", "answer option 3_3", "answer option 4_3", "answer option 5_3"];
 let questionFour = ["text for question four", "answer option 1_4", "answer option 2_4", "answer option 3_4", "answer option 4_4", "answer option 5_4"];
 let questionFive = ["text for question five", "answer option 1_5", "answer option 2_5", "answer option 3_5", "answer option 4_5", "answer option 5_5"];
+
+let userSelection = {};
 
 var timer;
 var timerCount;
@@ -18,7 +20,9 @@ function startGame(){
     startTimer();
     buttonsVisible();
     buttonText1();
+    userClick();
 }
+
 function startTimer() {
     var timeLeft = 60;
     var timeInterval = setInterval(function (){
@@ -44,18 +48,22 @@ function buttonText1(){
     answer3.textContent = questionOne[3];
     answer4.textContent = questionOne[4];
 }
-function questionOneUser(){
+
+//Function that checks to see which answer the user clicked and send that information to userSelection
+function userClick(){
+    answer1.addEventListener("click", () => (userSelection.userAnswer1 = answer1.textContent));
+    answer2.addEventListener("click", () => (userSelection.userAnswer1 = answer2.textContent));
+    answer3.addEventListener("click", () => (userSelection.userAnswer1 = answer3.textContent));
+    answer4.addEventListener("click", () => (userSelection.userAnswer1 = answer4.textContent));
+    console.log(userSelection);
+    console.log(userSelection.userAnswer1)
+    // checkAnswer();
 }
 
-
-// function buttonText2(){
-//     answer1.textContent = questionTwo[1];
-//     answer2.textContent = questionTwo[2];
-//     answer3.textContent = questionTwo[3];
-//     answer4.textContent = questionTwo[4];
+// function checkAnswer(){
+//     if (userSelection.userAnswer1 === questionOne[5]){
+//         console.log("you're right!")
+//     }
 // }
-
-
-
 
 startButton.addEventListener("click",() => startGame());
