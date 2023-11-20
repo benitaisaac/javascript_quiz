@@ -47,9 +47,6 @@ function buttonText1(){
 function questionOneUser(){
 }
 
-function userSelection(){
-    if ()
-}
 
 // function buttonText2(){
 //     answer1.textContent = questionTwo[1];
