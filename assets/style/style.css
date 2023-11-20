@@ -12,5 +12,5 @@ container{
 }
 
 #answer1, #answer2, #answer3, #answer4{
-    display: none;
+    visibility:hidden;
 }
