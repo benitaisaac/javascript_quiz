@@ -17,13 +17,10 @@ body{
   font-size:x-large;
 }
 
-/* container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height:100vh;
-} */
+/* hide the questions on the start page */
+#question{
+  display:none;
+}
 
 /* Design the answer buttons */
 /* Taken from https://getcssscan.com/css-buttons-examples , this is button 28 */
@@ -73,7 +70,10 @@ body{
   transform: translateY(0);
 }
 
-
+/* Hide the answers on the start page */
+.all-answers{
+  display:none;
+}
 
 /* Start button CSS. Taken from same website listed above, button 36 */
 .start, .next {

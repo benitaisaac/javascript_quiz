@@ -1,6 +1,17 @@
-var startButton = document.querySelector(".start");
+
 var timerElement = document.querySelector(".timer-count");
-var answerBtn = document.querySelector(".answer");
+var timer;
+var timerCount;
+
+var question = document.querySelector("#question")
+var allAnswers = document.querySelector(".all-answers");
+var answer = document.querySelector(".answer");
+var next = document.querySelector(".next")
+var start = document.querySelector(".start")
+
+//create variables to store question index (for future loop) and score 
+let questionIndex = 0;
+let score = 0;
 
 const questions = [
     {
@@ -34,33 +45,33 @@ const questions = [
             {text: "answer option 2", correct: false},
             {text: "answer option 3", correct: false},
             {text: "answer option 4", correct: true}
+        ],
+
+        question: "This is question 5",
+        answers: [
+            {text: "answer option 1", correct: false},
+            {text: "answer option 2", correct: false},
+            {text: "answer option 3", correct: false},
+            {text: "answer option 4", correct: true}
         ]
     },
 ]
 
-// let questionOne = ["text for question one", "answer option 1_1", "answer option 2_1", "answer option 3_1", "answer option 4_1", "answer option 1_1", ];
-// let questionTwo = ["text for question two", "answer option 1_2", "answer option 2_2", "answer option 3_2", "answer option 4_2", "answer option 5_2"];
-// let questionThree = ["text for question three", "answer option 1_3", "answer option 2_3", "answer option 3_3", "answer option 4_3", "answer option 5_3"];
-// let questionFour = ["text for question four", "answer option 1_4", "answer option 2_4", "answer option 3_4", "answer option 4_4", "answer option 5_4"];
-// let questionFive = ["text for question five", "answer option 1_5", "answer option 2_5", "answer option 3_5", "answer option 4_5", "answer option 5_5"];
-
 // let userSelection = { userAnswer1: " "};
-
-var timer;
-var timerCount;
-timerCount = 60;
 
 
 //This function starts the game once the user presses the 'start' button on the webpage
 //This function will...
 //1. Start the timer 2. Display the hidden buttons 3. Display content on the buttons 
-// function startGame(){ 
-//     timerCount = 60
-//     startTimer();
-//     buttonsVisible();
-//     buttonText1();
-//     userClick()
-// }
+function startQuiz(){ 
+    timerCount = 60; //start the timer at 60 seconds
+    startTimer(); //function to start the timer 
+    questionIndex = 0; //start the question index at 0
+    next.innerHTML = "Next"; //set the html text in the next button to 'next'
+    questionVisible(); //function to make the questions visible
+    // buttonText1();
+    // userClick()
+}
 
 function startTimer() {
     var timeLeft = 60;
@@ -73,8 +84,10 @@ function startTimer() {
     }
     }, 1000);
 }
-function buttonsVisible(){
-    answerBtn.setAttribute("style", " visibility: visible");
+
+function questionVisible(){
+    allAnswers.setAttribute("style", "display:block");
+    question.setAttribute("style", "display:block");
 }
 
 // function buttonText1(){
@@ -102,6 +115,6 @@ function buttonsVisible(){
 //     }
 // }
 
-startButton.addEventListener("click",() => startTimer());
+start.addEventListener("click",() => startQuiz());
 
 
