@@ -25,34 +25,34 @@ const questions = [
 
         question: "This is question 2",
         answers: [
-            {text: "answer option 1", correct: false},
-            {text: "answer option 2", correct: true},
-            {text: "answer option 3", correct: false},
-            {text: "answer option 4", correct: false}
+            {text: "answer option 5", correct: false},
+            {text: "answer option 6", correct: true},
+            {text: "answer option 7", correct: false},
+            {text: "answer option 8", correct: false}
         ],
 
         question: "This is question 3",
         answers: [
-            {text: "answer option 1", correct: true},
-            {text: "answer option 2", correct: false},
-            {text: "answer option 3", correct: false},
-            {text: "answer option 4", correct: false}
+            {text: "answer option 9", correct: true},
+            {text: "answer option 10", correct: false},
+            {text: "answer option 11", correct: false},
+            {text: "answer option 12", correct: false}
         ],
         
         question: "This is question 4",
         answers: [
-            {text: "answer option 1", correct: false},
-            {text: "answer option 2", correct: false},
-            {text: "answer option 3", correct: false},
-            {text: "answer option 4", correct: true}
+            {text: "answer option 13", correct: false},
+            {text: "answer option 14", correct: false},
+            {text: "answer option 15", correct: false},
+            {text: "answer option 16", correct: true}
         ],
 
         question: "This is question 5",
         answers: [
-            {text: "answer option 1", correct: false},
-            {text: "answer option 2", correct: false},
-            {text: "answer option 3", correct: false},
-            {text: "answer option 4", correct: true}
+            {text: "answer option 17", correct: false},
+            {text: "answer option 18", correct: false},
+            {text: "answer option 19", correct: false},
+            {text: "answer option 20", correct: true}
         ]
     },
 ]
@@ -86,34 +86,24 @@ function startTimer() {
 }
 
 function questionVisible(){
+    //display all the questions, get rid of start button, and add next button
     allAnswers.setAttribute("style", "display:block");
     question.setAttribute("style", "display:block");
+    next.setAttribute("style", "display:block");
+    start.setAttribute("style", "display:none");
+
+    //define local variable currentQuestion to display the question we are on 
+    //within the questions array above
+    let currentQuestion = questions[questionIndex]; 
+    //define local variable questionNo to keep track of our question number
+    //note that we add 1 because of index 0. I might take this out
+    let questionNo = questionIndex + 1;
+    //change the html text to reflect the question we are on
+    question.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    //how do i get the text to display in the answers buttons using inner HTML?
+
 }
-
-// function buttonText1(){
-//     big_text.textContent = questionOne[0];
-//     answer1.textContent = questionOne[1];
-//     answer2.textContent = questionOne[2];
-//     answer3.textContent = questionOne[3];
-//     answer4.textContent = questionOne[4];
-//     start.textContent = "Submit"
-// }
-
-// //Function that checks to see which answer the user clicked and send that information to userSelection
-// function userClick(){
-//     answer1.addEventListener("click", () => (userSelection.userAnswer1 = answer1.textContent));
-//     answer2.addEventListener("click", () => (userSelection.userAnswer1 = answer2.textContent));
-//     answer3.addEventListener("click", () => (userSelection.userAnswer1 = answer3.textContent));
-//     answer4.addEventListener("click", () => (userSelection.userAnswer1 = answer4.textContent));
-//     checkAnswer();
-//     console.log(userSelection) 
-//  }
-
-// function checkAnswer(){
-//     if (userSelection.userAnswer1 === questionOne[5]){
-//         console.log("you're right!")
-//     }
-// }
 
 start.addEventListener("click",() => startQuiz());
 
