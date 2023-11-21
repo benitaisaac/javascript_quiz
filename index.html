@@ -8,22 +8,30 @@
     <link rel="stylesheet" type="text/css" href="assets/style/style.css" />
 </head>
 <body>
-    <div class="timer">Timer
-        <div class ="timer-count">60</div>
-    </div>
-    <container>
-        <header> 
-            <h1 id="big_text"> Let's test your Javascript knowledge!</h1>
-        </header>
+    <div class="app">
+        <div class="timer">Timer
+            <div class ="timer-count">60</div>
+        </div>
 
-        <main> 
-            <button id="answer1"></button> 
-            <button id="answer2"></button> 
-            <button id="answer3"></button> 
-            <button id="answer4" ></button>
-            <button id="start"> Start </button>
-        </main>
-    </container>
+        <div class="quiz">
+            <header> 
+                <h1 id="big_text"> Javascript Quiz</h1>
+            </header>
+            <main> 
+                <h2 id="question"> This is a question </h2>
+                <div id="answers">
+                    <button class="answer">Answer 1</button> 
+                    <button class="answer">Answer 2</button> 
+                    <button class="answer">Answer 3</button> 
+                    <button class="answer">Answer 4</button>
+                </div>
+                <button class="start"> Start </button>
+                <button class="next"> Next </button>
+            </main>
+        </div>
+
+    </div>
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>
