@@ -22,7 +22,8 @@ const questions = [
             {text: "answer option 3", correct: false},
             {text: "answer option 4", correct: false}
         ],
-
+    },
+    {
         question: "This is question 2",
         answers: [
             {text: "answer option 5", correct: false},
@@ -30,7 +31,8 @@ const questions = [
             {text: "answer option 7", correct: false},
             {text: "answer option 8", correct: false}
         ],
-
+    },
+    {
         question: "This is question 3",
         answers: [
             {text: "answer option 9", correct: true},
@@ -38,7 +40,8 @@ const questions = [
             {text: "answer option 11", correct: false},
             {text: "answer option 12", correct: false}
         ],
-        
+    },
+    { 
         question: "This is question 4",
         answers: [
             {text: "answer option 13", correct: false},
@@ -46,7 +49,8 @@ const questions = [
             {text: "answer option 15", correct: false},
             {text: "answer option 16", correct: true}
         ],
-
+    },
+    {  
         question: "This is question 5",
         answers: [
             {text: "answer option 17", correct: false},
@@ -54,10 +58,9 @@ const questions = [
             {text: "answer option 19", correct: false},
             {text: "answer option 20", correct: true}
         ]
-    },
+    } 
+    
 ]
-
-// let userSelection = { userAnswer1: " "};
 
 
 //This function starts the game once the user presses the 'start' button on the webpage
