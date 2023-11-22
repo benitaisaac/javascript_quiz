@@ -11,6 +11,7 @@ var answers = document.getElementsByClassName(".answer"); //this grabs all the e
 var next = document.querySelector(".next");
 var start = document.querySelector(".start");
 var title = document.querySelector("#big_text");
+var form = document.querySelector("#form");
 
 //create variables to store question index (for future loop) and score 
 let questionIndex = 0;
@@ -199,11 +200,17 @@ function endGameScreen(){
     allAnswers.setAttribute("style", "display:none");
     question.setAttribute("style", "display:none");
     next.setAttribute("style", "display:none");
-    title.textContent = "Quiz Over!";
+    title.textContent = "Quiz Over! Your score is " + score;
+    
+//Display the form 
+    form.setAttribute("style", "display:block");
 
-//TO DO: insert a form 
-
+//Store form information in local storage
+    localStorage.setItem("score", score);
 }
+
+//Hide the form at start page 
+form.setAttribute("style", "display:none");
 
 start.addEventListener("click",() => startQuiz());
 
