@@ -69,6 +69,10 @@ const questions = [
     
 ]
 
+// if(timeLeft < 0 || timeLeft === 0){
+//     console.log("you've run out of time")
+//     endGame();
+// }
 
 //This function starts the game once the user presses the 'start' button on the webpage
 //This function will...
@@ -87,6 +91,7 @@ function startTimer() {
 
     if (timeLeft === 0){
         clearInterval(timeInterval); 
+        endGame();
     }
     }, 1000);
 }
@@ -119,9 +124,9 @@ function questionVisible(){
     enableAnswerButtons();
     resetAnswerButtons();
 
-//TO DO: Reset all answers buttons to go back to original CSS 
-      //TO DO: create a new function -- resetAnswerButtons
-      //TO DO: create a for loop which will reset all formatting on css buttons
+//DONE: Reset all answers buttons to go back to original CSS 
+      //DONE: create a new function -- resetAnswerButtons
+      //DONE: create a for loop which will reset all formatting on css buttons
 }
 
 function resetAnswerButtons(){
@@ -149,7 +154,7 @@ function checkAnswer(event){
     } 
     if (event.target.value == "false"){
         console.log("you're wrong!")
-        timeLeft -= 20;
+        timeLeft -= 30;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:red");
         next.disabled = false;
@@ -181,11 +186,19 @@ function nextQuestion(){
     questionVisible();
 }
 
+function endGame(){
+    console.log("you've run out of time!");
+}
+
 
 start.addEventListener("click",() => startQuiz());
 
 
 //TO DO: If questions left, display the next question 
+
 //TO DO: If no questions left, run end game function 
+    //TO DO: create an endGame function 
+    //TO DO: figure out what to display on endGame function 
+    //TO DO: change content on start button to reset so they can play again
 //TO DO: Form where users enter initials and send to local storage 
 //TO DO: Display the high scores 
