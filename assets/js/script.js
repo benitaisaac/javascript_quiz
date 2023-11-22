@@ -76,9 +76,7 @@ function startQuiz(){
     startTimer(); //function to start the timer 
     questionIndex = 0; //start the question index at 0
     next.innerHTML = "Next"; //set the html text in the next button to 'next'
-    questionVisible(); //function to make the questions visible
-    // buttonText1();
-    // userClick()
+    questionVisible(); //function to make the questions visible 
 }
 
 function startTimer() {
@@ -115,12 +113,22 @@ function questionVisible(){
         answer[i].textContent = questions[questionIndex].answers[i].text;
         answer[i].value = questions[questionIndex].answers[i].correct; //to assign values to each answer button
       }
+    next.disabled = true;
+}
+
+
+function checkAnswer(event){
+    next.disabled = false;
+    if (event.target.value){
+        console.log("you're right!");
+    } 
 }
 
 start.addEventListener("click",() => startQuiz());
 
 //TO DO: create the onclick (in html?)
 //TO DO: Have onclick run check answer function 
+
 //TO DO: Acess button that was clicked (this or event.target)
 //To do: Disable buttons after click 
 //TO DO: conditional, check to see if value is T/F
