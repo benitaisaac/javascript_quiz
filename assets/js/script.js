@@ -89,7 +89,7 @@ function startTimer() {
         timeLeft--;
         timerElement.textContent = timeLeft + " seconds left";
 
-    if (timeLeft === 0){
+    if (timeLeft <= 0){
         clearInterval(timeInterval); 
         endGame();
     }
