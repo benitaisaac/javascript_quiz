@@ -120,8 +120,6 @@ function questionVisible(){
 
 //TO DO: Have onclick run check answer function 
 function checkAnswer(event){
-    next.disabled = false;
-
 //TO DO: Acess button that was clicked (this or event.target)
 //TO DO: conditional, check to see if value is T/F
 //TO DO: if true, add time to timer, tell them correct, add to score 
