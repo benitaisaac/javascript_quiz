@@ -11,11 +11,6 @@ var answers = document.getElementsByClassName(".answer"); //this grabs all the e
 var next = document.querySelector(".next")
 var start = document.querySelector(".start")
 
-// var answer1 = document.querySelector('#answer1')
-// var answer2 = document.querySelector('#answer2')
-// var answer3 = document.querySelector('#answer3')
-// var answer4 = document.querySelector('#answer4')
-
 //create variables to store question index (for future loop) and score 
 let questionIndex = 0;
 let score = 0;
@@ -69,14 +64,6 @@ const questions = [
     
 ]
 
-// if(timeLeft < 0 || timeLeft === 0){
-//     console.log("you've run out of time")
-//     endGame();
-// }
-
-//This function starts the game once the user presses the 'start' button on the webpage
-//This function will...
-//1. Start the timer 2. Display the hidden buttons 3. Display content on the buttons 
 function startQuiz(){ 
     timerCount = 60; //start the timer at 60 seconds
     startTimer(); //function to start the timer 
@@ -91,6 +78,8 @@ function startTimer() {
 
     if (timeLeft <= 0){
         clearInterval(timeInterval); 
+        timeLeft = 0;
+        timerElement.textContent = timeLeft + " seconds left";
         endGame();
     }
     }, 1000);
@@ -195,6 +184,8 @@ start.addEventListener("click",() => startQuiz());
 
 
 //TO DO: If questions left, display the next question 
+
+//DONE: Make sure the timer doesn't display negative numbers 
 
 //TO DO: If no questions left, run end game function 
     //TO DO: create an endGame function 
