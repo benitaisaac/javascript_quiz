@@ -145,14 +145,6 @@ function checkAnswer(event){
 //TO DO: Display second set of questions and answers 
 function nextQuestion(){
     console.log("I just pressed next");
-    // let currentQuestion = questions[questionIndex]; 
-    // let questionNo = questionIndex + 1;
-    // question.innerHTML = questionNo + ". " + currentQuestion.question;
-
-    // for (let i = 0; i < questions[questionIndex].answers.length; i++) {
-    //     answer[i].textContent = questions[questionIndex].answers[i].text;
-    //     answer[i].value = questions[questionIndex].answers[i].correct; 
-    //   }
     
 }
 
