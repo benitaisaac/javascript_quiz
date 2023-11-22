@@ -7,6 +7,7 @@ var timeLeft = 60;
 var question = document.querySelector("#question")
 var allAnswers = document.querySelector(".all-answers");
 var answer = document.querySelectorAll(".answer"); // This will return an array 
+var answers = document.getElementsByClassName(".answer"); //this grabs all the elements
 var next = document.querySelector(".next")
 var start = document.querySelector(".start")
 
@@ -117,18 +118,21 @@ function questionVisible(){
     next.disabled = true;
 }
 
-//TO DO: Have onclick run check answer function 
+//DONE: Have onclick run check answer function 
 function checkAnswer(event){
-//TO DO: Acess button that was clicked (this or event.target)
-//TO DO: conditional, check to see if value is T/F
-//TO DO: if true, add time to timer, tell them correct, add to score 
-//TO DO: if wrong, subtract time to timer, tell them incorrect
+//DONE: Acess button that was clicked (this or event.target)
+//DONE: conditional, check to see if value is T/F
+//DONE: if true, add time to timer, tell them correct, add to score 
+//DONE: if wrong, subtract time to timer, tell them incorrect
+//DONE: enable next button 
     if (event.target.value == "true"){
         console.log("you're right!");
         timeLeft += 30;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:green");
         next.disabled = false;
+        disableAnswerButtons();
+        
     } 
     if (event.target.value == "false"){
         console.log("you're wrong!")
@@ -136,22 +140,28 @@ function checkAnswer(event){
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:red");
         next.disabled = false;
+        answers.disabled = true;
+        disableAnswerButtons();
+ 
+    }
+}
+
+//DONE: Disable answer buttons after an answer is clicked
+function disableAnswerButtons(){
+    var elems = document.getElementsByClassName("answer");
+    for(var i=0; i < elems.length;i++){
+        elems[i].disabled=true;
     }
 }
 
 //TO DO: Add 1 to questionIndex and display new set of questions
-//TO DO: enable next button 
 //TO DO: Display second set of questions and answers 
 function nextQuestion(){
     console.log("I just pressed next");
-    
 }
 
 
 start.addEventListener("click",() => startQuiz());
-
-//TO DO: Disable answer buttons after an answer is clicked
-
 
 
 //TO DO: If questions left, display the next question 
