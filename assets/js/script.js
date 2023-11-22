@@ -8,13 +8,15 @@ var question = document.querySelector("#question")
 var allAnswers = document.querySelector(".all-answers");
 var answer = document.querySelectorAll(".answer"); // This will return an array 
 var answers = document.getElementsByClassName(".answer"); //this grabs all the elements
-var next = document.querySelector(".next")
-var start = document.querySelector(".start")
+var next = document.querySelector(".next");
+var start = document.querySelector(".start");
+var title = document.querySelector("#big_text");
 
 //create variables to store question index (for future loop) and score 
 let questionIndex = 0;
 let score = 0;
 
+//TO DO: Insert questions and answers 
 const questions = [
     {
         question: "This is question 1",
@@ -132,12 +134,16 @@ function checkAnswer(event){
 //DONE: if true, add time to timer, tell them correct, add to score 
 //DONE: if wrong, subtract time to timer, tell them incorrect
 //DONE: enable next button 
+//TO DO: Add to score global variable when user gets an answer correct
+
     if (event.target.value == "true"){
         console.log("you're right!");
         timeLeft += 30;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:green");
         next.disabled = false;
+        score += 1;
+        console.log(score); //check score in console 
         disableAnswerButtons();
         
     } 
@@ -148,6 +154,7 @@ function checkAnswer(event){
         event.target.setAttribute("style", "background-color:red");
         next.disabled = false;
         answers.disabled = true;
+        console.log(score); //check score in console
         disableAnswerButtons();
     }
 }
@@ -169,27 +176,39 @@ function enableAnswerButtons(){
 
 //DONE: Add 1 to questionIndex and display new set of questions
 //DONE: Display second set of questions and answers 
+//DONE: If questions left, display the next question 
 function nextQuestion(){
     console.log("I just pressed next");
     questionIndex = questionIndex + 1
     questionVisible();
 }
 
+//TO DO: Display a new screen 
+//DONE: create an endGame function 
+
 function endGame(){
     console.log("you've run out of time!");
+    endGameScreen();
 }
 
+//TO DO: Form where users enter initials and send to local storage 
+//TO DO: Put in a form that asks User for initials
+//TO DO: Store Initials and score in local storage
+
+function endGameScreen(){
+    allAnswers.setAttribute("style", "display:none");
+    question.setAttribute("style", "display:none");
+    next.setAttribute("style", "display:none");
+    title.textContent = "Quiz Over!";
+
+//TO DO: insert a form 
+
+}
 
 start.addEventListener("click",() => startQuiz());
 
-
-//TO DO: If questions left, display the next question 
-
-//DONE: Make sure the timer doesn't display negative numbers 
+//TO DO: Make sure the timer doesn't display negative numbers
 
 //TO DO: If no questions left, run end game function 
-    //TO DO: create an endGame function 
-    //TO DO: figure out what to display on endGame function 
     //TO DO: change content on start button to reset so they can play again
-//TO DO: Form where users enter initials and send to local storage 
 //TO DO: Display the high scores 
