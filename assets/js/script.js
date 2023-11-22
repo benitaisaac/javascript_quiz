@@ -5,14 +5,14 @@ var timerCount;
 
 var question = document.querySelector("#question")
 var allAnswers = document.querySelector(".all-answers");
-var answer = document.querySelector(".answer");
+var answer = document.querySelectorAll(".answer"); // This will return an array 
 var next = document.querySelector(".next")
 var start = document.querySelector(".start")
 
-var answer1 = document.querySelector('#answer1')
-var answer2 = document.querySelector('#answer2')
-var answer3 = document.querySelector('#answer3')
-var answer4 = document.querySelector('#answer4')
+// var answer1 = document.querySelector('#answer1')
+// var answer2 = document.querySelector('#answer2')
+// var answer3 = document.querySelector('#answer3')
+// var answer4 = document.querySelector('#answer4')
 
 //create variables to store question index (for future loop) and score 
 let questionIndex = 0;
@@ -111,11 +111,23 @@ function questionVisible(){
 
     //how do i get the text to display in the answers buttons using inner HTML?
     //ask tutor for help with this
-//     for (let i = 0; i < questions.length; i++) {
-//         answer(i+1).innerHTML = questions[i]
-//       }
-// }
+    for (let i = 0; i < questions[questionIndex].answers.length; i++) {
+        answer[i].textContent = questions[questionIndex].answers[i].text;
+        answer[i].value = questions[questionIndex].answers[i].correct; //to assign values to each answer button
+      }
+}
 
 start.addEventListener("click",() => startQuiz());
 
-
+//TO DO: create the onclick (in html?)
+//TO DO: Have onclick run check answer function 
+//TO DO: Acess button that was clicked (this or event.target)
+//To do: Disable buttons after click 
+//TO DO: conditional, check to see if value is T/F
+//TO DO: if true, add time to timer, tell them correct, add to score 
+//TO DO: if wrong, subtract time to timer, tell them incorrect
+//TO DO: Add 1 to questionIndex 
+//TO DO: If questions left, display the next question 
+//TO DO: If no questions left, run end game function 
+//TO DO: Form where users enter initials and send to local storage 
+//TO DO: Display the high scores 
