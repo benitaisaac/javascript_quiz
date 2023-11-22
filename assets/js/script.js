@@ -2,7 +2,6 @@
 var timerElement = document.querySelector(".timer-count");
 var timer;
 var timerCount;
-
 var timeLeft = 60;
 
 var question = document.querySelector("#question")
@@ -128,16 +127,15 @@ function checkAnswer(event){
 //TO DO: if true, add time to timer, tell them correct, add to score 
     if (event.target.value == "true"){
         console.log("you're right!");
-        timerElement.textContent = timeLeft + 30 + " seconds left"
-        timeLeft--;
+        timeLeft += 30;
+        timerElement.textContent = timeLeft + " seconds left"
     } 
     if (event.target.value == "false"){
         console.log("you're wrong!")
+        timeLeft -= 20;
+        timerElement.textContent = timeLeft + " seconds left"
     }
 }
-
-
- 
 
 
 start.addEventListener("click",() => startQuiz());
