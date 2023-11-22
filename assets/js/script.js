@@ -131,14 +131,14 @@ function checkAnswer(event){
         timeLeft += 30;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:green");
-        next.disabled = true;
+        next.disabled = false;
     } 
     if (event.target.value == "false"){
         console.log("you're wrong!")
         timeLeft -= 20;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:red");
-        next.disabled = true;
+        next.disabled = false;
     }
 }
 
