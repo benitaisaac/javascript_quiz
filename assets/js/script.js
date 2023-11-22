@@ -3,6 +3,8 @@ var timerElement = document.querySelector(".timer-count");
 var timer;
 var timerCount;
 
+var timeLeft = 60;
+
 var question = document.querySelector("#question")
 var allAnswers = document.querySelector(".all-answers");
 var answer = document.querySelectorAll(".answer"); // This will return an array 
@@ -80,7 +82,6 @@ function startQuiz(){
 }
 
 function startTimer() {
-    var timeLeft = 60;
     var timeInterval = setInterval(function (){
         timeLeft--;
         timerElement.textContent = timeLeft + " seconds left";
@@ -127,7 +128,8 @@ function checkAnswer(event){
 //TO DO: if true, add time to timer, tell them correct, add to score 
     if (event.target.value == "true"){
         console.log("you're right!");
-        // timerElement.textContent =  + 10;
+        timerElement.textContent = timeLeft + 30 + " seconds left"
+        timeLeft--;
     } 
     if (event.target.value == "false"){
         console.log("you're wrong!")
