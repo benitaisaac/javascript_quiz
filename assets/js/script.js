@@ -76,7 +76,6 @@ function startQuiz(){
     timerCount = 60; //start the timer at 60 seconds
     startTimer(); //function to start the timer 
     questionIndex = 0; //start the question index at 0
-    next.innerHTML = "Next"; //set the html text in the next button to 'next'
     questionVisible(); //function to make the questions visible 
 }
 
