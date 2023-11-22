@@ -114,11 +114,21 @@ function questionVisible(){
         //Assign each answer to corresponding key value pair. Keep in mind it will store a string (not a boolean)
         answer[i].value = questions[questionIndex].answers[i].correct; 
       }
-//To do: Disable next button after click 
+//DONE: Disable next button after click 
     next.disabled = true;
     enableAnswerButtons();
-    
+    resetAnswerButtons();
 
+//TO DO: Reset all answers buttons to go back to original CSS 
+      //TO DO: create a new function -- resetAnswerButtons
+      //TO DO: create a for loop which will reset all formatting on css buttons
+}
+
+function resetAnswerButtons(){
+    var elems = document.getElementsByClassName("answer");
+    for (var i=0; i < elems.length; i++){
+        elems[i].setAttribute("style", "background-color:transparent");
+    }
 }
 
 //DONE: Have onclick run check answer function 
@@ -145,7 +155,6 @@ function checkAnswer(event){
         next.disabled = false;
         answers.disabled = true;
         disableAnswerButtons();
- 
     }
 }
 
@@ -164,8 +173,8 @@ function enableAnswerButtons(){
     }
 }
 
-//TO DO: Add 1 to questionIndex and display new set of questions
-//TO DO: Display second set of questions and answers 
+//DONE: Add 1 to questionIndex and display new set of questions
+//DONE: Display second set of questions and answers 
 function nextQuestion(){
     console.log("I just pressed next");
     questionIndex = questionIndex + 1
