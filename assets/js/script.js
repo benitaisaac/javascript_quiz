@@ -131,13 +131,31 @@ function checkAnswer(event){
         timeLeft += 30;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:green");
+        next.disabled = true;
     } 
     if (event.target.value == "false"){
         console.log("you're wrong!")
         timeLeft -= 20;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:red");
+        next.disabled = true;
     }
+}
+
+//TO DO: Add 1 to questionIndex and display new set of questions
+//TO DO: enable next button 
+//TO DO: Display second set of questions and answers 
+function nextQuestion(){
+    console.log("I just pressed next");
+    // let currentQuestion = questions[questionIndex]; 
+    // let questionNo = questionIndex + 1;
+    // question.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    // for (let i = 0; i < questions[questionIndex].answers.length; i++) {
+    //     answer[i].textContent = questions[questionIndex].answers[i].text;
+    //     answer[i].value = questions[questionIndex].answers[i].correct; 
+    //   }
+    
 }
 
 
@@ -146,7 +164,7 @@ start.addEventListener("click",() => startQuiz());
 //TO DO: Disable answer buttons after an answer is clicked
 
 
-//TO DO: Add 1 to questionIndex 
+
 //TO DO: If questions left, display the next question 
 //TO DO: If no questions left, run end game function 
 //TO DO: Form where users enter initials and send to local storage 
