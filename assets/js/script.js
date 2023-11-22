@@ -111,28 +111,40 @@ function questionVisible(){
     //ask tutor for help with this
     for (let i = 0; i < questions[questionIndex].answers.length; i++) {
         answer[i].textContent = questions[questionIndex].answers[i].text;
-        answer[i].value = questions[questionIndex].answers[i].correct; //to assign values to each answer button
+        //Assign each answer to corresponding key value pair. Keep in mind it will store a string (not a boolean)
+        answer[i].value = questions[questionIndex].answers[i].correct; 
       }
+//To do: Disable next button after click 
     next.disabled = true;
 }
 
-
+//TO DO: Have onclick run check answer function 
 function checkAnswer(event){
     next.disabled = false;
-    if (event.target.value){
+
+//TO DO: Acess button that was clicked (this or event.target)
+//TO DO: conditional, check to see if value is T/F
+//TO DO: if true, add time to timer, tell them correct, add to score 
+    if (event.target.value == "true"){
         console.log("you're right!");
+        // timerElement.textContent =  + 10;
     } 
+    if (event.target.value == "false"){
+        console.log("you're wrong!")
+    }
 }
+
+
+ 
+
 
 start.addEventListener("click",() => startQuiz());
 
 //TO DO: create the onclick (in html?)
-//TO DO: Have onclick run check answer function 
 
-//TO DO: Acess button that was clicked (this or event.target)
-//To do: Disable buttons after click 
-//TO DO: conditional, check to see if value is T/F
-//TO DO: if true, add time to timer, tell them correct, add to score 
+
+//TO DO: Disable answer buttons after click
+
 //TO DO: if wrong, subtract time to timer, tell them incorrect
 //TO DO: Add 1 to questionIndex 
 //TO DO: If questions left, display the next question 
