@@ -125,27 +125,27 @@ function checkAnswer(event){
 //TO DO: Acess button that was clicked (this or event.target)
 //TO DO: conditional, check to see if value is T/F
 //TO DO: if true, add time to timer, tell them correct, add to score 
+//TO DO: if wrong, subtract time to timer, tell them incorrect
     if (event.target.value == "true"){
         console.log("you're right!");
         timeLeft += 30;
         timerElement.textContent = timeLeft + " seconds left"
+        event.target.setAttribute("style", "background-color:green");
     } 
     if (event.target.value == "false"){
         console.log("you're wrong!")
         timeLeft -= 20;
         timerElement.textContent = timeLeft + " seconds left"
+        event.target.setAttribute("style", "background-color:red");
     }
 }
 
 
 start.addEventListener("click",() => startQuiz());
 
-//TO DO: create the onclick (in html?)
+//TO DO: Disable answer buttons after an answer is clicked
 
 
-//TO DO: Disable answer buttons after click
-
-//TO DO: if wrong, subtract time to timer, tell them incorrect
 //TO DO: Add 1 to questionIndex 
 //TO DO: If questions left, display the next question 
 //TO DO: If no questions left, run end game function 
