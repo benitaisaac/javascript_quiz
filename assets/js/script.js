@@ -116,6 +116,9 @@ function questionVisible(){
       }
 //To do: Disable next button after click 
     next.disabled = true;
+    enableAnswerButtons();
+    
+
 }
 
 //DONE: Have onclick run check answer function 
@@ -154,10 +157,19 @@ function disableAnswerButtons(){
     }
 }
 
+function enableAnswerButtons(){
+    var elems = document.getElementsByClassName("answer");
+    for(var i=0; i < elems.length;i++){
+        elems[i].disabled=false;
+    }
+}
+
 //TO DO: Add 1 to questionIndex and display new set of questions
 //TO DO: Display second set of questions and answers 
 function nextQuestion(){
     console.log("I just pressed next");
+    questionIndex = questionIndex + 1
+    questionVisible();
 }
 
 
