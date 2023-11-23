@@ -13,9 +13,16 @@ var start = document.querySelector(".start");
 var title = document.querySelector("#big_text");
 var form = document.querySelector("#form");
 
+var userInitials = document.querySelector("#userInitials");
+
 //create variables to store question index (for future loop) and score 
 let questionIndex = 0;
 let score = 0;
+
+// var scoreInformation = {
+//     score,
+//     initials: userInitials.value.trim()
+// };
 
 //TO DO: Insert questions and answers 
 const questions = [
@@ -184,7 +191,7 @@ function nextQuestion(){
     questionVisible();
 }
 
-//TO DO: Display a new screen 
+//DONE: Display a new screen 
 //DONE: create an endGame function 
 
 function endGame(){
@@ -192,9 +199,18 @@ function endGame(){
     endGameScreen();
 }
 
-//TO DO: Form where users enter initials and send to local storage 
-//TO DO: Put in a form that asks User for initials
-//TO DO: Store Initials and score in local storage
+function scoreLocalStorage(){
+    //Store form information in local storage
+    let finalScore = {
+        score,
+        initials: userInitials.value.trim()
+    };
+    localStorage.setItem("userScore", JSON.stringify(finalScore));
+}
+
+//DONE: Form where users enter initials and send to local storage 
+//DONE: Put in a form that asks User for initials
+//DONE: Store Initials and score in local storage
 
 function endGameScreen(){
     allAnswers.setAttribute("style", "display:none");
@@ -204,9 +220,6 @@ function endGameScreen(){
     
 //Display the form 
     form.setAttribute("style", "display:block");
-
-//Store form information in local storage
-    localStorage.setItem("score", score);
 }
 
 //Hide the form at start page 
