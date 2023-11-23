@@ -187,8 +187,14 @@ function enableAnswerButtons(){
 //DONE: If questions left, display the next question 
 function nextQuestion(){
     console.log("I just pressed next");
-    questionIndex = questionIndex + 1
-    questionVisible();
+    if (questionIndex < 5){
+        questionIndex = questionIndex + 1
+        questionVisible();
+    }
+    if (questionIndex == 5){
+        next.disabled = false;
+        endGameScreen();
+    }
 }
 
 //DONE: Display a new screen 
@@ -217,6 +223,8 @@ function endGameScreen(){
     question.setAttribute("style", "display:none");
     next.setAttribute("style", "display:none");
     title.textContent = "Quiz Over! Your score is " + score;
+    timeLeft = 0;
+    timerElement.textContent = "0 seconds left" 
     
 //Display the form 
     form.setAttribute("style", "display:block");
