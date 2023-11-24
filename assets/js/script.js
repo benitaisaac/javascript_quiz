@@ -19,11 +19,6 @@ var userInitials = document.querySelector("#userInitials");
 let questionIndex = 0;
 let score = 0;
 
-// var scoreInformation = {
-//     score,
-//     initials: userInitials.value.trim()
-// };
-
 //TO DO: Insert questions and answers 
 const questions = [
     {
@@ -187,11 +182,10 @@ function enableAnswerButtons(){
 //DONE: If questions left, display the next question 
 function nextQuestion(){
     console.log("I just pressed next");
+    questionIndex += 1;
     if (questionIndex < 5){
-        questionIndex = questionIndex + 1
         questionVisible();
-    }
-    if (questionIndex == 5){
+    } else {
         next.disabled = false;
         endGameScreen();
     }
