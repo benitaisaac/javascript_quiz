@@ -168,6 +168,7 @@ function enableAnswerButtons(){
 //Add 1 to questionIndex and display new set of questions
 //Display second set of questions and answers 
 //If questions left, display the next question 
+//If no questions left, run end game function 
 function nextQuestion(){
     questionIndex += 1;
     if (questionIndex < 5){
@@ -178,7 +179,6 @@ function nextQuestion(){
     }
 }
 
- //TO DO: get rid of endGame Function and combine into one 
 function endGame(){
     allAnswers.setAttribute("style", "display:none");
     question.setAttribute("style", "display:none");
@@ -191,7 +191,7 @@ function endGame(){
     form.setAttribute("style", "display:block");
 }
 
-//Store form information in local storage
+//Store initials and score in local storage
 function scoreLocalStorage(){
     let finalScore = {
         score,
@@ -200,17 +200,6 @@ function scoreLocalStorage(){
     localStorage.setItem("userScore", JSON.stringify(finalScore));
 }
 
-//DONE: Form where users enter initials and send to local storage 
-//DONE: Put in a form that asks User for initials
-//DONE: Store Initials and score in local storage
-
 //Hide the form at start page 
 form.setAttribute("style", "display:none");
-
 start.addEventListener("click",() => startQuiz());
-
-//TO DO: Make sure the timer doesn't display negative numbers
-
-//TO DO: If no questions left, run end game function 
-    //TO DO: change content on start button to reset so they can play again
-//TO DO: Display the high scores 
