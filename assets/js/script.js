@@ -132,24 +132,20 @@ function resetAnswerButtons(){
 //enable next button 
 function checkAnswer(event){
     if (event.target.value == "true"){
-        console.log("you're right!");
         timeLeft += 30;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:green");
         next.disabled = false;
         score += 1;
-        console.log(score); //check score in console 
         disableAnswerButtons();
         
     } 
     if (event.target.value == "false"){
-        console.log("you're wrong!")
         timeLeft -= 30;
         timerElement.textContent = timeLeft + " seconds left"
         event.target.setAttribute("style", "background-color:red");
         next.disabled = false;
         answers.disabled = true;
-        console.log(score); //check score in console
         disableAnswerButtons();
     }
 }
@@ -173,19 +169,26 @@ function enableAnswerButtons(){
 //Display second set of questions and answers 
 //If questions left, display the next question 
 function nextQuestion(){
-    console.log("I just pressed next");
     questionIndex += 1;
     if (questionIndex < 5){
         questionVisible();
     } else {
         next.disabled = false;
-        endGameScreen();
+        endGame();
     }
 }
 
  //TO DO: get rid of endGame Function and combine into one 
 function endGame(){
-    endGameScreen();
+    allAnswers.setAttribute("style", "display:none");
+    question.setAttribute("style", "display:none");
+    next.setAttribute("style", "display:none");
+    title.textContent = "Quiz Over! Your score is " + score;
+    timeLeft = 0;
+    timerElement.textContent = "0 seconds left" 
+    
+//Display the form 
+    form.setAttribute("style", "display:block");
 }
 
 //Store form information in local storage
@@ -200,18 +203,6 @@ function scoreLocalStorage(){
 //DONE: Form where users enter initials and send to local storage 
 //DONE: Put in a form that asks User for initials
 //DONE: Store Initials and score in local storage
-
-function endGameScreen(){
-    allAnswers.setAttribute("style", "display:none");
-    question.setAttribute("style", "display:none");
-    next.setAttribute("style", "display:none");
-    title.textContent = "Quiz Over! Your score is " + score;
-    timeLeft = 0;
-    timerElement.textContent = "0 seconds left" 
-    
-//Display the form 
-    form.setAttribute("style", "display:block");
-}
 
 //Hide the form at start page 
 form.setAttribute("style", "display:none");
