@@ -6,6 +6,7 @@ This is a quiz that you can use to test your Javascript knowledge! Press start t
 
 Once you are done taking the quiz, you can store your initials as the computer will store your score and initials in Local Storage. 
 
+Benita's Javascript Quiz: https://benitaisaac.github.io/javascript_quiz/ 
 
 
 ## Usage
