@@ -22,48 +22,48 @@ let score = 0;
 //TO DO: Insert questions and answers 
 const questions = [
     {
-        question: "This is question 1",
+        question: "Inside which HTML element do we put the JavaScript?",
         answers: [
-            {text: "answer option 1", correct: true},
-            {text: "answer option 2", correct: false},
-            {text: "answer option 3", correct: false},
-            {text: "answer option 4", correct: false}
+            {text: " <script> ", correct: true},
+            {text: " <scripting> ", correct: false},
+            {text: " <js> ", correct: false},
+            {text: " <javascript> ", correct: false}
         ],
     },
     {
-        question: "This is question 2",
+        question: "How do you write 'Hello World' in an alert box?",
         answers: [
-            {text: "answer option 5", correct: false},
-            {text: "answer option 6", correct: true},
-            {text: "answer option 7", correct: false},
-            {text: "answer option 8", correct: false}
+            {text: " alertBox(\"Hello World\"); ", correct: false},
+            {text: " alert(\"Hello World\"); ", correct: true},
+            {text: " msgBox(\"Hello World\"); ", correct: false},
+            {text: " msg(\"Hello World\") ", correct: false}
         ],
     },
     {
-        question: "This is question 3",
+        question: "How do you create a function in Javascript?",
         answers: [
-            {text: "answer option 9", correct: true},
-            {text: "answer option 10", correct: false},
-            {text: "answer option 11", correct: false},
-            {text: "answer option 12", correct: false}
+            {text: "function myFunction()", correct: true},
+            {text: "function = myFunction()", correct: false},
+            {text: "function:myFunction()", correct: false},
+            {text: "function myFunction{}", correct: false}
         ],
     },
     { 
-        question: "This is question 4",
+        question: "How do you call a function named \"myFunction\"?",
         answers: [
-            {text: "answer option 13", correct: false},
-            {text: "answer option 14", correct: false},
-            {text: "answer option 15", correct: false},
-            {text: "answer option 16", correct: true}
+            {text: "call function myFunction()", correct: false},
+            {text: "call myFunction()", correct: false},
+            {text: "myFunction{}", correct: false},
+            {text: "myFunction()", correct: true}
         ],
     },
     {  
-        question: "This is question 5",
+        question: "How do you write an IF statement in Javascript?",
         answers: [
-            {text: "answer option 17", correct: false},
-            {text: "answer option 18", correct: false},
-            {text: "answer option 19", correct: false},
-            {text: "answer option 20", correct: true}
+            {text: "if i = 5 then", correct: false},
+            {text: "if i = 5", correct: false},
+            {text: "if i == 5 then", correct: false},
+            {text: "if (i == 5)", correct: true}
         ]
     } 
     
