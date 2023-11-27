@@ -8,13 +8,11 @@ Once you are done taking the quiz, you can store your initials as the computer w
 
 Benita's Javascript Quiz: https://benitaisaac.github.io/javascript_quiz/ 
 
-```md
+md
     ![An image of the start of the quiz](assets/Images/Screen%20Shot%202023-11-26%20at%209.32.52%20PM.png)
-```
 
-```md
+md
     ![A screenshot of an example question](assets/Images/Screen%20Shot%202023-11-26%20at%209.33.02%20PM.png)
-```
 
 
 ## Usage
