@@ -33,4 +33,8 @@ The CSS for the buttons were taken from the following resource:
 
 https://getcssscan.com/css-buttons-examples (button 28 and 36)
 
+Questions for quiz taken from: 
+
+https://www.w3schools.com/js/js_quiz.asp 
+
 
