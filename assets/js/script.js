@@ -15,11 +15,11 @@ var form = document.querySelector("#form");
 
 var userInitials = document.querySelector("#userInitials");
 
-//create variables to store question index (for future loop) and score 
+//create variables to store question index and score
 let questionIndex = 0;
 let score = 0;
 
-//TO DO: Insert questions and answers 
+//All questions, answers, and key value pairs for solution are held within the questions array 
 const questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -101,28 +101,23 @@ function questionVisible(){
     //within the questions array above
     let currentQuestion = questions[questionIndex]; 
     //define local variable questionNo to keep track of our question number
-    //note that we add 1 because of index 0. I might take this out
     let questionNo = questionIndex + 1;
     //change the html text to reflect the question we are on
     question.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    //how do i get the text to display in the answers buttons using inner HTML?
-    //ask tutor for help with this
+    //have answers options display using a for loop, pulling from the qustions array
     for (let i = 0; i < questions[questionIndex].answers.length; i++) {
         answer[i].textContent = questions[questionIndex].answers[i].text;
         //Assign each answer to corresponding key value pair. Keep in mind it will store a string (not a boolean)
         answer[i].value = questions[questionIndex].answers[i].correct; 
       }
-//DONE: Disable next button after click 
+//Disable next button after click and reset all answer buttons
     next.disabled = true;
     enableAnswerButtons();
     resetAnswerButtons();
-
-//DONE: Reset all answers buttons to go back to original CSS 
-      //DONE: create a new function -- resetAnswerButtons
-      //DONE: create a for loop which will reset all formatting on css buttons
 }
 
+//Reset all answers buttons to go back to original CSS by making a new function with a for loop
 function resetAnswerButtons(){
     var elems = document.getElementsByClassName("answer");
     for (var i=0; i < elems.length; i++){
@@ -130,15 +125,12 @@ function resetAnswerButtons(){
     }
 }
 
-//DONE: Have onclick run check answer function 
+//Have onclick run check answer function in HTML. This function will...
+//Check to see if value is T/F
+//if true, add time to timer, tell them correct with a green box, add to score 
+//if wrong, subtract time to timer, tell them incorrect with a red box
+//enable next button 
 function checkAnswer(event){
-//DONE: Acess button that was clicked (this or event.target)
-//DONE: conditional, check to see if value is T/F
-//DONE: if true, add time to timer, tell them correct, add to score 
-//DONE: if wrong, subtract time to timer, tell them incorrect
-//DONE: enable next button 
-//TO DO: Add to score global variable when user gets an answer correct
-
     if (event.target.value == "true"){
         console.log("you're right!");
         timeLeft += 30;
@@ -162,7 +154,7 @@ function checkAnswer(event){
     }
 }
 
-//DONE: Disable answer buttons after an answer is clicked
+//Disable answer buttons after an answer is clicked
 function disableAnswerButtons(){
     var elems = document.getElementsByClassName("answer");
     for(var i=0; i < elems.length;i++){
@@ -177,9 +169,9 @@ function enableAnswerButtons(){
     }
 }
 
-//DONE: Add 1 to questionIndex and display new set of questions
-//DONE: Display second set of questions and answers 
-//DONE: If questions left, display the next question 
+//Add 1 to questionIndex and display new set of questions
+//Display second set of questions and answers 
+//If questions left, display the next question 
 function nextQuestion(){
     console.log("I just pressed next");
     questionIndex += 1;
@@ -191,16 +183,13 @@ function nextQuestion(){
     }
 }
 
-//DONE: Display a new screen 
-//DONE: create an endGame function 
-
+ //TO DO: get rid of endGame Function and combine into one 
 function endGame(){
-    console.log("you've run out of time!");
     endGameScreen();
 }
 
+//Store form information in local storage
 function scoreLocalStorage(){
-    //Store form information in local storage
     let finalScore = {
         score,
         initials: userInitials.value.trim()
